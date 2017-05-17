@@ -3,6 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" media="all" href="style.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $('body').on('ia-writer-change', function(){
+                // We need to remove `disable` as otherwise the checkboxes
+                // are dimmed on iOS. But then we don't want them to be
+                // checkable by the user either, so we void the `click` handler.
+                var all = $('.task-list-item-checkbox');
+                all.on("click", false);
+                all.removeAttr('disabled');
+            })
+        })
+    </script>
 </head>
 <body data-document>&nbsp;</body>
 </html>

@@ -1,3 +1,10 @@
+/* Useful constants as custom properties */
+
+:root {
+    --goldenratio: 1.618;
+    --major-second: 1.125;
+}
+
 /* Document font */
 :root {
     font-family: Georgia;

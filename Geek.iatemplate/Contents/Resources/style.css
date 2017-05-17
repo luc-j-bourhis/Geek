@@ -17,6 +17,18 @@
     font-size: 20px; /* maybe progressivity with calc and vw later */
 }
 
+/* Universal border-box fix */
+:root {
+    box-sizing: border-box;
+
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
 /* Table of Contents */
 .TOC::before {
     content: "Table of Contents";

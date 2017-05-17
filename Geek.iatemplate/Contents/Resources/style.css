@@ -96,3 +96,12 @@ ol .task-list-item {
 ul .task-list-item {
     list-style-type: none;
 }
+
+/* Links */
+a {
+    color: inherit;
+}
+
+.TOC a {
+    text-decoration: inherit;
+}

@@ -1,6 +1,12 @@
 /* Document font */
 :root {
-    font-family: "Georgia";
+    font-family: Georgia;
+    --fontscaling1: var(--major-second);
+    --fontscaling2: calc(var(--fontscaling1)*var(--fontscaling1));
+    --fontscaling3: calc(var(--fontscaling2)*var(--fontscaling1));
+    --fontscaling4: calc(var(--fontscaling2)*var(--fontscaling2));
+    --fontscaling5: calc(var(--fontscaling3)*var(--fontscaling2));
+    --fontscaling6: calc(var(--fontscaling4)*var(--fontscaling2));
 }
 
 :root.mac {
@@ -14,4 +20,36 @@
 /* Table of Contents */
 .TOC::before {
     content: "Table of Contents";
+}
+
+/* Headers (fonts) */
+
+h1, h2, h3, h4, h5, h6, .TOC::before {
+    font-family: -apple-system;
+    font-weight: normal;
+    font-variant: small-caps;
+}
+
+h5, h6 {
+    font-size: calc(var(--fontscaling1)*1rem);
+}
+
+h6 {
+    font-style: italic;
+}
+
+h4 {
+    font-size: calc(var(--fontscaling2)*1rem);
+}
+
+h3 {
+    font-size: calc(var(--fontscaling3)*1rem);
+}
+
+h2 {
+    font-size: calc(var(--fontscaling4)*1rem);
+}
+
+h1, .TOC::before {
+    font-size: calc(var(--fontscaling5)*1rem);
 }

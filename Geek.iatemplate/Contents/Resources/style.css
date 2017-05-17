@@ -10,3 +10,8 @@
 :root.ios {
     font-size: 20px; /* maybe progressivity with calc and vw later */
 }
+
+/* Table of Contents */
+.TOC::before {
+    content: "Table of Contents";
+}

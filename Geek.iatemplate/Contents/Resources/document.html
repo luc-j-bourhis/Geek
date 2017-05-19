@@ -52,7 +52,8 @@
                 var all = $('.task-list-item-checkbox');
                 all.on("click", false);
                 all.removeAttr('disabled');
-
+            });
+            $('body').on('ia-writer-change', function(){
                 // Code highlighting
                 $('pre code').each(function(index) {
                     var c = $(this).attr('class');

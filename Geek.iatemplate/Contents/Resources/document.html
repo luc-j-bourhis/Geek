@@ -13,9 +13,19 @@
                 var all = $('.task-list-item-checkbox');
                 all.on("click", false);
                 all.removeAttr('disabled');
+
+                // Code highlighting
+                $('pre code').each(function(index) {
+                    var c = $(this).attr('class');
+                    c = 'language-' + c;
+                    $(this).attr('class', c);
+                })
+                Prism.highlightAll()
             })
         })
     </script>
+    <script type="text/javascript" src="prism.js"></script>
+    <link rel="stylesheet" type="text/css" href="prism-coy.css">
 </head>
 <body data-document>&nbsp;</body>
 </html>

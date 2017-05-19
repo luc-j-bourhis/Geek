@@ -135,3 +135,44 @@ a {
     font-family: "Zapf Dingbats";
     font-size: 1.2rem;
 }
+
+/* Margin around floats */
+:root {
+    --float-margin: 1.5em;
+    --float-margins: 1em var(--float-margin)
+                     var(--float-margin) var(--float-margin);
+}
+
+/* Figures */
+figure {
+    float: left;
+    margin: var(--float-margins);
+}
+
+/* Tables */
+table {
+    width: calc(100% - 2*var(--side-margin));
+    margin: var(--float-margins);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table caption {
+    margin: var(--paragraph-spacing);
+    caption-side: bottom;
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f2f2f2;
+    border-bottom-width: 2px;
+}
+
+th, td {
+    padding: calc(var(--paragraph-spacing)/2);
+}

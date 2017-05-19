@@ -35,6 +35,13 @@
     box-sizing: inherit;
 }
 
+/* Left and right margins */
+*[data-document] {
+    --side-margin: 2em;
+    margin-left: var(--side-margin);
+    margin-right: var(--side-margin);
+}
+
 /* Table of Contents */
 .TOC::before {
     content: "Table of Contents";

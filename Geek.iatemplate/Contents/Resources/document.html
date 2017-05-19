@@ -4,6 +4,45 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" media="all" href="style.css">
     <script type="text/javascript" src="jquery.min.js"></script>
+    <script
+      type="text/x-mathjax-config"
+    >
+      MathJax.Hub.Config({
+        // hide message appearing in the lower left corner
+        messageStyle: "none",
+
+        // we typeset on load event
+        skipStartupTypeset: false,
+
+        // minimalistic: we only need TeX
+        extensions: ["tex2jax.js"],
+
+        // SVG is the fastest but that does not work well with iA Writer
+        jax: ["input/TeX", "output/HTML-CSS"],
+
+        // No math menu
+        showMathMenu: false,
+
+        // IA Writer markdown processor transforms $...$ into \(...\),
+        // and $$...$$ into \[...\], so we just need those.
+        tex2jax: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]],
+          preview: "none",
+        },
+
+        TeX: {
+          // Minimalistic
+          extensions: ["AMSmath.js", "AMSsymbols.js"],
+        },
+
+        "HTML-CSS": {
+            availableFonts: ["TeX"],
+            imageFont: null,
+        },
+      });
+    </script>
+    <script type="text/javascript" src="MathJax/MathJax.js"></script>
     <script type="text/javascript">
         $(window).on('load', function(){
             $('body').on('ia-writer-change', function(){
@@ -21,8 +60,17 @@
                     $(this).attr('class', c);
                 })
                 Prism.highlightAll()
-            })
-        })
+            });
+            var delay = 500; // ms
+            var math_timeout = null;
+            $('body').on('ia-writer-change', function(){
+                clearTimeout(math_timeout);
+                math_timeout = setTimeout(function(){
+                    MathJax.Hub.Queue(
+                        ["Typeset", MathJax.Hub, $(this).toArray()]);
+                }, delay);
+            });
+        });
     </script>
     <script type="text/javascript" src="prism.js"></script>
     <link rel="stylesheet" type="text/css" href="prism-coy.css">

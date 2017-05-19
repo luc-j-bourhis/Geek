@@ -45,6 +45,7 @@
     <script type="text/javascript" src="MathJax/MathJax.js"></script>
     <script type="text/javascript">
         $(window).on('load', function(){
+            // Checkboxes
             $('body').on('ia-writer-change', function(){
                 // We need to remove `disable` as otherwise the checkboxes
                 // are dimmed on iOS. But then we don't want them to be
@@ -53,8 +54,13 @@
                 all.on("click", false);
                 all.removeAttr('disabled');
             });
+
+            // Syntax highlighting
             $('body').on('ia-writer-change', function(){
                 // Code highlighting
+                // Prism requires a class language-xxx but for tersity
+                // we want to annotate Markdown code blocks with xxx only.
+                // So hack it!
                 $('pre code').each(function(index) {
                     var c = $(this).attr('class');
                     c = 'language-' + c;
@@ -62,6 +68,14 @@
                 })
                 Prism.highlightAll()
             });
+
+            // Math
+            // The rationale for using setTimeout is that MathJax is too
+            // slow to work in real time as we type. So as long as the user
+            // types, the event 'ia-writer-change' is triggered and it results
+            // in MathJax processing to be schedule 1/2 second in the future.
+            // So it never occurs as long as one types but nearly as soon as
+            // one stops typing, equations are then rendered.
             var delay = 500; // ms
             var math_timeout = null;
             $('body').on('ia-writer-change', function(){

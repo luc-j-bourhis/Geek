@@ -176,3 +176,10 @@ th {
 th, td {
     padding: calc(var(--paragraph-spacing)/2);
 }
+
+/* Code */
+:root {
+    --code-font-family: 'Menlo', monospace;
+    /* Otherwise the monospace font is too big compare to document serif font */
+    --code-font-size: 0.9rem;
+}

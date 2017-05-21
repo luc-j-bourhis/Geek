@@ -6,9 +6,8 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-	font-family: 'Menlo', monospace;
-	/* Otherwise the monospace font is too big compare to document serif font */
-	font-size: 0.9rem;
+	font-family: var(--code-font-family);
+	font-size: var(--code-font-size);
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;

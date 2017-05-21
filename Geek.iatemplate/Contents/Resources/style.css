@@ -183,3 +183,26 @@ th, td {
     /* Otherwise the monospace font is too big compare to document serif font */
     --code-font-size: 0.9rem;
 }
+
+/* Support for night mode */
+:root {
+    --night-colour:#cccccc;
+    --night-background-colour:#101010;
+}
+
+.night-mode {
+    color: var(--night-colour);
+    background-color: var(--night-background-colour);
+}
+
+.night-mode th {
+    background-color: var(--night-background-colour);
+}
+
+.night-mode .task-list-item-checkbox:checked:after {
+    color: var(--night-colour);
+}
+
+.night-mode .task-list-item-checkbox {
+    border-color: var(--night-colour);
+}

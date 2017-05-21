@@ -1,7 +1,10 @@
 /* Trimmed down version of style Coy to remove shadows, background, stripes,
    the ugly blue border on the left, etc.
 
-   Change in highlighting: class name gets its own colour (purple)
+Change in highlighting:
+	- class name gets its own colour (purple)
+	- remove styling of inline code: iA Writer does not offer any way to
+	  assign a language. Thus prism actually ignores them.
 */
 
 code[class*="language-"],
@@ -25,17 +28,6 @@ code[class*="language"] {
 	padding: 0 1em;
 	display: block;
 	overflow: auto;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-	position: relative;
-	padding: .2em;
-	border-radius: 0.3em;
-	color: #c92c2c;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	display: inline;
-	white-space: normal;
 }
 
 .token.comment,

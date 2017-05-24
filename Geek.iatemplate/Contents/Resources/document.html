@@ -79,11 +79,27 @@
             // one stops typing, equations are then rendered.
             var delay = 500; // ms
             var math_timeout = null;
+            var first_update = false;
             $('body').on('ia-writer-change', function(){
                 clearTimeout(math_timeout);
                 math_timeout = setTimeout(function(){
-                    MathJax.Hub.Queue(
-                        ["Typeset", MathJax.Hub, $(this).toArray()]);
+                    if (first_update) {
+                        MathJax.Hub.Queue(
+                            ["Typeset", MathJax.Hub, $(this).toArray()]);
+                    }
+                    else {
+                        // We need to reset equation numbers, otherwise:
+                        // (1) the number of any given equation keeps growing
+                        // every time Mathjax processes it again
+                        // (2) equations with a \label{...} make Mathejax
+                        // complains that labels are defined several times.
+                        //
+                        // This is also probably more efficient in this way.
+                        MathJax.Hub.Queue(
+                            ['resetEquationNumbers', MathJax.InputJax.TeX],
+                            ['PreProcess', MathJax.Hub, $(this).toArray()],
+                            ['Reprocess', MathJax.Hub, $(this).toArray()]);
+                    }
                 }, delay);
             });
         });

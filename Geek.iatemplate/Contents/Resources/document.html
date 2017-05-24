@@ -18,7 +18,7 @@
         extensions: ["tex2jax.js"],
 
         // SVG is the fastest but that does not work well with iA Writer
-        jax: ["input/TeX", "output/HTML-CSS"],
+        jax: ["input/TeX", "output/CommonHTML"],
 
         // No math menu
         showMathMenu: false,
@@ -35,11 +35,6 @@
           // Minimalistic
           extensions: ["AMSmath.js", "AMSsymbols.js"],
           equationNumbers: { autoNumber: "all" },
-        },
-
-        "HTML-CSS": {
-            availableFonts: ["TeX"],
-            imageFont: null,
         },
       });
     </script>

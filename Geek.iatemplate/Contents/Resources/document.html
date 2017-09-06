@@ -38,7 +38,7 @@
         },
       });
     </script>
-    <script type="text/javascript" src="MathJax/MathJax.js"></script>
+    <script type="text/javascript" src="MathJax-2.7.2/MathJax.js"></script>
     <script type="text/javascript">
         $(window).on('load', function(){
             // Checkboxes
@@ -80,7 +80,7 @@
                 math_timeout = setTimeout(function(){
                     if (first_update) {
                         MathJax.Hub.Queue(
-                            ["Typeset", MathJax.Hub, $(this).toArray()]);
+                            ["Typeset", MathJax.Hub]);
                     }
                     else {
                         // We need to reset equation numbers, otherwise:
@@ -92,8 +92,8 @@
                         // This is also probably more efficient in this way.
                         MathJax.Hub.Queue(
                             ['resetEquationNumbers', MathJax.InputJax.TeX],
-                            ['PreProcess', MathJax.Hub, $(this).toArray()],
-                            ['Reprocess', MathJax.Hub, $(this).toArray()]);
+                            ['PreProcess', MathJax.Hub],
+                            ['Reprocess', MathJax.Hub]);
                     }
                 }, delay);
             });

@@ -188,6 +188,7 @@ th, td {
 :root {
     --night-colour:#cccccc;
     --night-background-colour:#101010;
+    background-color: white;
 }
 
 .night-mode {

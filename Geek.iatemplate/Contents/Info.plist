@@ -26,6 +26,12 @@
 	<string>header</string>
 	<key>IATemplateHeaderHeight</key>
 	<integer>90</integer>
+	<!-- iA Writer version 4.1 (MacOS) and 5 (iOS) typeset equations by
+		 default with Texzilla before the template javascript code has a chance
+		 to proceed. Unless the following key is set to false, that is!
+	-->
+	<key>IATemplateSupportsMath</key>
+	<false/>
 	<key>IATemplateDescription</key>
 	<string>Template supporting mathematical equations and code blocks syntax highlighting for reading on screen.</string>
 	<key>IATemplateAuthor</key>

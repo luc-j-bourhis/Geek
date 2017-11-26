@@ -8,37 +8,20 @@
       type="text/x-mathjax-config"
     >
       MathJax.Hub.Config({
-        // hide message appearing in the lower left corner
-        messageStyle: "none",
-
         // we typeset on load event
         skipStartupTypeset: false,
-
-        // minimalistic: we only need TeX
-        extensions: ["tex2jax.js"],
-
-        // SVG is the fastest but that does not work well with iA Writer
-        jax: ["input/TeX", "output/CommonHTML"],
 
         // No math menu
         showMathMenu: false,
 
-        // IA Writer markdown processor transforms $...$ into \(...\),
-        // and $$...$$ into \[...\], so we just need those.
-        tex2jax: {
-          inlineMath: [["\\(", "\\)"]],
-          displayMath: [["\\[", "\\]"]],
-          preview: "none",
-        },
-
         TeX: {
-          // Minimalistic
-          extensions: ["AMSmath.js", "AMSsymbols.js"],
           equationNumbers: { autoNumber: "all" },
         },
       });
     </script>
-    <script type="text/javascript" src="MathJax-2.7.2/MathJax.js"></script>
+    <script type="text/javascript"
+            src="MathJax-2.7.2/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
     <script type="text/javascript">
         $(window).on('load', function(){
             // Checkboxes
